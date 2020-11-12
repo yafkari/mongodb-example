@@ -21,12 +21,10 @@ export default function App() {
   const onAdd = async (e) => {
     e.preventDefault()
     let res = await todoService.createOne({
-    // await todoService.createOne({
       text: document.getElementById("todo-text").value
     });
 
     setTodos([...todos, res])
-    // getTodos()
   }
 
   const updateTodo = async (item) => {
@@ -38,7 +36,7 @@ export default function App() {
   const deleteTodo = async (id) => {
     await todoService.deleteOne(id)
 
-    getTodos()
+    setTodos(todos.filter(todo => todo._id == id))
   }
 
   return (
