@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import {Component} from "react"
+
+import TodoItem from "./components/TodoItem"
+
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
 
-export default App;
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [
+        {
+          id: 1,
+          text: "Finir cette presentation",
+          done: false
+        }
+      ],
+    };
+  }
+  
+  deleteTodo = (id) => {
+    this.setState(({todos}) => ({
+        todos: todos.filter(todo => todo.id !== id)
+      })
+    )
+  }
+
+  render() {
+    return (
+      <>
+        <header>Todo App</header>
+        <main>
+          <ul>
+            {
+              this.state.todos.map(todo => <TodoItem key={todo.id} item={todo} deleteTodo={this.deleteTodo} />)
+            }
+          </ul>
+        </main>
+      </>
+    );
+  }
+}
