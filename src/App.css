@@ -2,3 +2,28 @@
   margin: 2%;
   text-align: center;
 }
+
+main ul > *{
+  margin-bottom: 2%;
+}
+
+#add-form {
+  text-align: left;
+  display: block;
+}
+
+#add-form {
+  height: 50%;
+}
+
+#add-btn {
+  margin-left: 1%;
+}
+
+#add-btn img {
+  vertical-align: top;
+}
+
+#add-btn span {
+  vertical-align: sub;
+}
