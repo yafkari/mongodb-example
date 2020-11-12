@@ -18,7 +18,7 @@ export default class TodoItem extends Component {
             <li className="TodoItem">
                 <input type="checkbox" name="isDone" id="isDone" onChange={this.handleChange}/>
                 <p>{this.props.item.text}</p>
-                <button onClick={_ => {this.props.deleteTodo(this.props.item.id); this.forceUpdate();}}>X</button>
+                <button onClick={_ => this.props.deleteTodo(this.props.item.id)}>X</button>
             </li>
         )
     }
